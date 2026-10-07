@@ -1,872 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Shishant | Engineer & Developer</title>
-
-    <style>
-        /* =========================
-           RESET & GLOBAL STYLES
-        ========================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0a0a0f;
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================== */
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-
-            background: rgba(10, 10, 15, 0.75);
-            backdrop-filter: blur(15px);
-
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .nav-container {
-            height: 70px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #7c5cff;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #b8b8c7;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-
-        .theme-btn {
-            border: none;
-            background: #7c5cff;
-            color: white;
-
-            width: 40px;
-            height: 40px;
-
-            border-radius: 50%;
-            cursor: pointer;
-
-            font-size: 18px;
-        }
-
-
-        /* =========================
-           HERO SECTION
-        ========================== */
-
-        .hero {
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 750px;
-        }
-
-        .tag {
-            display: inline-block;
-
-            padding: 8px 15px;
-            border-radius: 30px;
-
-            background: rgba(124, 92, 255, 0.12);
-            border: 1px solid rgba(124, 92, 255, 0.3);
-
-            color: #a997ff;
-
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(50px, 8vw, 90px);
-            line-height: 1;
-
-            margin-bottom: 25px;
-        }
-
-        .gradient-text {
-            background: linear-gradient(
-                90deg,
-                #7c5cff,
-                #00d4ff
-            );
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: #a7a7b5;
-            font-size: 20px;
-
-            max-width: 650px;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 14px 24px;
-            border-radius: 10px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .primary {
-            background: #7c5cff;
-            color: white;
-        }
-
-        .primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(124,92,255,0.35);
-        }
-
-        .secondary {
-            border: 1px solid #333341;
-            color: white;
-        }
-
-        .secondary:hover {
-            background: #181820;
-        }
-
-
-        /* =========================
-           BACKGROUND GLOW
-        ========================== */
-
-        .glow {
-            position: absolute;
-
-            width: 500px;
-            height: 500px;
-
-            background: #7c5cff;
-
-            filter: blur(180px);
-            opacity: 0.15;
-
-            border-radius: 50%;
-
-            right: -150px;
-            top: 100px;
-
-            z-index: -1;
-        }
-
-
-        /* =========================
-           SECTION
-        ========================== */
-
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        .section-description {
-            color: #9999a8;
-            margin-bottom: 50px;
-        }
-
-
-        /* =========================
-           SKILLS
-        ========================== */
-
-        .skills {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(200px, 1fr));
-
-            gap: 20px;
-        }
-
-        .skill {
-            padding: 25px;
-
-            background: #111117;
-
-            border: 1px solid #22222c;
-
-            border-radius: 15px;
-
-            transition: 0.3s;
-        }
-
-        .skill:hover {
-            transform: translateY(-7px);
-            border-color: #7c5cff;
-        }
-
-        .skill h3 {
-            margin-bottom: 8px;
-        }
-
-        .skill p {
-            color: #8d8d9b;
-        }
-
-
-        /* =========================
-           PROJECTS
-        ========================== */
-
-        .projects {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
-
-            gap: 25px;
-        }
-
-        .project {
-            background: #111117;
-
-            border: 1px solid #22222c;
-
-            border-radius: 18px;
-
-            padding: 30px;
-
-            transition: 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-8px);
-
-            border-color: #7c5cff;
-
-            box-shadow:
-                0 20px 50px rgba(0,0,0,0.3);
-        }
-
-        .project-number {
-            color: #7c5cff;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .project h3 {
-            font-size: 25px;
-            margin-bottom: 12px;
-        }
-
-        .project p {
-            color: #90909e;
-            margin-bottom: 20px;
-        }
-
-        .tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tech span {
-            padding: 6px 10px;
-
-            border-radius: 20px;
-
-            background: #1c1c25;
-
-            font-size: 13px;
-            color: #b7b7c5;
-        }
-
-
-        /* =========================
-           STATS
-        ========================== */
-
-        .stats {
-            display: grid;
-
-            grid-template-columns:
-                repeat(auto-fit, minmax(180px, 1fr));
-
-            gap: 20px;
-
-            text-align: center;
-        }
-
-        .stat {
-            padding: 30px;
-
-            background: #111117;
-
-            border-radius: 15px;
-        }
-
-        .stat h3 {
-            font-size: 40px;
-            color: #7c5cff;
-        }
-
-        .stat p {
-            color: #8d8d9b;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================== */
-
-        .contact {
-            text-align: center;
-            max-width: 700px;
-            margin: auto;
-        }
-
-        .contact p {
-            color: #9999a8;
-            margin: 20px 0 30px;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-            border-top: 1px solid #22222c;
-
-            padding: 30px 0;
-
-            text-align: center;
-
-            color: #777784;
-        }
-
-
-        /* =========================
-           LIGHT MODE
-        ========================== */
-
-        body.light {
-            background: #f5f5f7;
-            color: #111111;
-        }
-
-        body.light nav {
-            background: rgba(255,255,255,0.75);
-        }
-
-        body.light .skill,
-        body.light .project,
-        body.light .stat {
-            background: white;
-            border-color: #dddddd;
-        }
-
-        body.light .nav-links a {
-            color: #555555;
-        }
-
-        body.light .hero p,
-        body.light .project p,
-        body.light .skill p,
-        body.light .section-description,
-        body.light .contact p {
-            color: #666666;
-        }
-
-        body.light .secondary {
-            border-color: #cccccc;
-            color: #111111;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================== */
-
-        @media (max-width: 700px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                text-align: center;
-            }
-
-            .hero-content {
-                margin: auto;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            .buttons {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .section-title {
-                font-size: 34px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shishant — engineering student, developer and builder.">
+  <title>Shishant — Engineer & Developer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
+  <div id="particles"></div>
 
-    <!-- NAVIGATION -->
+  <nav class="navbar">
+    <a class="brand" href="#home">S<span>.</span></a>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">☀</button>
+    </div>
+  </nav>
 
-    <nav>
-        <div class="container nav-container">
-
-            <div class="logo">
-                S<span>.</span>
-            </div>
-
-            <ul class="nav-links">
-
-                <li>
-                    <a href="#home">Home</a>
-                </li>
-
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
-
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
-            </ul>
-
-            <button
-                class="theme-btn"
-                onclick="toggleTheme()">
-
-                ☀️
-
-            </button>
-
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">ENGINEERING × SOFTWARE × BUILDING</p>
+        <h1>Turning ideas into <span class="gradient">real things.</span></h1>
+        <p class="hero-text">
+          I'm Shishant, an engineering student who enjoys solving problems,
+          building software and experimenting with electronics and control systems.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">Explore projects →</a>
+          <a class="btn ghost" href="#contact">Let's connect</a>
         </div>
-    </nav>
-
-
-    <!-- HERO -->
-
-    <section class="hero" id="home">
-
-        <div class="glow"></div>
-
-        <div class="container">
-
-            <div class="hero-content">
-
-                <div class="tag">
-                    ⚡ Engineering × Technology
-                </div>
-
-               <h1>
-    Hello, I'm
-    <span class="gradient-text">
-        Shishant.
-    </span>
-    I Build Things.
-</h1>
-
-                <p>
-
-                    I'm an engineering student passionate
-                    about software, electronics, problem
-                    solving and building useful things.
-
-                </p>
-
-                <div class="buttons">
-
-                    <a
-                        href="#projects"
-                        class="btn primary">
-
-                        Explore My Work
-
-                    </a>
-
-                    <a
-                        href="#contact"
-                        class="btn secondary">
-
-                        Contact Me
-
-                    </a>
-
-                </div>
-
-            </div>
-
+        <div class="mini-stats">
+          <div><strong>100+</strong><span>DSA problems</span></div>
+          <div><strong>3+</strong><span>Projects</span></div>
+          <div><strong>∞</strong><span>Ideas</span></div>
         </div>
+      </div>
 
+      <div class="hero-card reveal">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="code-card">
+          <div class="window-dots"><i></i><i></i><i></i></div>
+          <pre><code><span class="purple">const</span> developer = {
+  name: <span class="green">"Shishant"</span>,
+  focus: <span class="green">"problem solving"</span>,
+  build: [<span class="green">"web"</span>, <span class="green">"systems"</span>],
+  mindset: <span class="green">"learn → build → improve"</span>
+};</code></pre>
+        </div>
+      </div>
     </section>
 
-
-    <!-- SKILLS -->
-
-    <section id="skills">
-
-        <div class="container">
-
-            <h2 class="section-title">
-                Skills
-            </h2>
-
-            <p class="section-description">
-                Technologies and areas I'm currently working with.
-            </p>
-
-
-            <div class="skills">
-
-                <div class="skill">
-
-                    <h3>💻 Programming</h3>
-
-                    <p>
-                        C++, Python, JavaScript
-                    </p>
-
-                </div>
-
-
-                <div class="skill">
-
-                    <h3>🧠 DSA</h3>
-
-                    <p>
-                        Algorithms, Data Structures,
-                        Problem Solving
-                    </p>
-
-                </div>
-
-
-                <div class="skill">
-
-                    <h3>🌐 Web Development</h3>
-
-                    <p>
-                        HTML, CSS, JavaScript,
-                        React
-                    </p>
-
-                </div>
-
-
-                <div class="skill">
-
-                    <h3>⚡ Electronics</h3>
-
-                    <p>
-                        Arduino, Embedded Systems,
-                        Control Systems
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <section id="about" class="section">
+      <div class="section-head reveal">
+        <p class="eyebrow">01 / ABOUT</p>
+        <h2>Curious about how things work.</h2>
+      </div>
+      <div class="about-grid">
+        <article class="glass reveal">
+          <h3>Engineering mindset</h3>
+          <p>I like breaking complicated problems into smaller pieces, understanding the fundamentals, and then building a working solution.</p>
+        </article>
+        <article class="glass reveal">
+          <h3>Currently learning</h3>
+          <p>Data structures, algorithms, modern web development, software engineering and practical embedded/control systems.</p>
+        </article>
+        <article class="glass reveal">
+          <h3>What I enjoy</h3>
+          <p>Projects where hardware, software and problem solving meet — especially when there is something tangible to demonstrate.</p>
+        </article>
+      </div>
     </section>
 
-
-    <!-- PROJECTS -->
-
-    <section id="projects">
-
-        <div class="container">
-
-            <h2 class="section-title">
-                Featured Projects
-            </h2>
-
-            <p class="section-description">
-                Some things I've built.
-            </p>
-
-
-            <div class="projects">
-
-
-                <div class="project">
-
-                    <div class="project-number">
-                        PROJECT 01
-                    </div>
-
-                    <h3>
-                        Ball Balancing System
-                    </h3>
-
-                    <p>
-                        A control system that uses Arduino
-                        and PID control to balance a ball
-                        on a platform.
-                    </p>
-
-                    <div class="tech">
-
-                        <span>Arduino</span>
-                        <span>PID</span>
-                        <span>Control</span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="project">
-
-                    <div class="project-number">
-                        PROJECT 02
-                    </div>
-
-                    <h3>
-                        Pac-Man Maze
-                    </h3>
-
-                    <p>
-                        A maze-based game implemented
-                        using data structures and
-                        depth-first search.
-                    </p>
-
-                    <div class="tech">
-
-                        <span>Python</span>
-                        <span>DFS</span>
-                        <span>Stack</span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="project">
-
-                    <div class="project-number">
-                        PROJECT 03
-                    </div>
-
-                    <h3>
-                        Gray Code Counter
-                    </h3>
-
-                    <p>
-                        A synchronous 4-bit Gray Code
-                        counter implemented using
-                        digital logic.
-                    </p>
-
-                    <div class="tech">
-
-                        <span>Digital Logic</span>
-                        <span>CPLD</span>
-                        <span>Verilog</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <section id="skills" class="section">
+      <div class="section-head reveal">
+        <p class="eyebrow">02 / SKILLS</p>
+        <h2>Tools I like to build with.</h2>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-card reveal"><span>01</span><h3>C++</h3><p>DSA · OOP · Problem solving</p><div class="bar"><i style="width:82%"></i></div></div>
+        <div class="skill-card reveal"><span>02</span><h3>Python</h3><p>Automation · Projects · Algorithms</p><div class="bar"><i style="width:78%"></i></div></div>
+        <div class="skill-card reveal"><span>03</span><h3>Web</h3><p>HTML · CSS · JavaScript · React</p><div class="bar"><i style="width:70%"></i></div></div>
+        <div class="skill-card reveal"><span>04</span><h3>Electronics</h3><p>Arduino · Control · Digital systems</p><div class="bar"><i style="width:75%"></i></div></div>
+      </div>
     </section>
 
-
-    <!-- STATS -->
-
-    <section>
-
-        <div class="container">
-
-            <div class="stats">
-
-                <div class="stat">
-
-                    <h3>100+</h3>
-
-                    <p>
-                        DSA Problems
-                    </p>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <h3>3+</h3>
-
-                    <p>
-                        Projects
-                    </p>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <h3>∞</h3>
-
-                    <p>
-                        Things To Build
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
+    <section id="projects" class="section">
+      <div class="section-head reveal">
+        <p class="eyebrow">03 / PROJECTS</p>
+        <h2>Things I've built.</h2>
+        <p>Click a project to see more.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card reveal" data-project="ball">
+          <div class="project-image ball-image"><span>PID</span></div>
+          <div class="project-body"><p class="project-tag">CONTROL SYSTEMS</p><h3>Ball Balancing System</h3><p>Arduino-based ball balancing platform using feedback and PID control.</p><button class="text-btn">View project →</button></div>
+        </article>
+        <article class="project-card reveal" data-project="pacman">
+          <div class="project-image maze-image"><span>DFS</span></div>
+          <div class="project-body"><p class="project-tag">DATA STRUCTURES</p><h3>Pac-Man Maze</h3><p>A maze game exploring stacks, graphs and depth-first search.</p><button class="text-btn">View project →</button></div>
+        </article>
+        <article class="project-card reveal" data-project="gray">
+          <div class="project-image circuit-image"><span>GRAY</span></div>
+          <div class="project-body"><p class="project-tag">DIGITAL LOGIC</p><h3>Gray Code Counter</h3><p>A synchronous 4-bit Gray Code counter designed for programmable logic.</p><button class="text-btn">View project →</button></div>
+        </article>
+      </div>
     </section>
 
-
-    <!-- CONTACT -->
-
-    <section id="contact">
-
-        <div class="container">
-
-            <div class="contact">
-
-                <h2 class="section-title">
-                    Let's Build Something.
-                </h2>
-
-                <p>
-
-                    Have an idea, project or opportunity?
-                    Let's connect and build something
-                    interesting together.
-
-                </p>
-
-                <a
-                    href="mailto:your@email.com"
-                    class="btn primary">
-
-                    Send Me an Email
-
-                </a>
-
-            </div>
-
-        </div>
-
+    <section class="section quote-section">
+      <div class="quote reveal">
+        <span>“</span>
+        <h2>Build something. Break it. Understand it. Build it better.</h2>
+      </div>
     </section>
 
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <div class="container">
-
-            © 2026 Shishant.
-            Built with HTML, CSS & JavaScript.
-
+    <section id="contact" class="section">
+      <div class="contact-card reveal">
+        <div>
+          <p class="eyebrow">04 / CONTACT</p>
+          <h2>Have an idea?</h2>
+          <p>Send a message and let's talk about it.</p>
         </div>
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="email" name="email" placeholder="Your email" required>
+          <textarea name="message" rows="5" placeholder="Tell me what you're building..." required></textarea>
+          <button class="btn primary" type="submit">Send message →</button>
+          <small id="formNote">To activate real email delivery, replace YOUR_FORM_ID with your free Formspree form ID.</small>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    </footer>
+  <footer>© 2026 Shishant · Built with HTML, CSS & JavaScript</footer>
 
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <button id="closeModal" class="close-btn">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
 
-    <!-- JAVASCRIPT -->
-
-    <script>
-
-        function toggleTheme() {
-
-            document.body.classList.toggle("light");
-
-        }
-
-    </script>
-
+  <script src="script.js"></script>
 </body>
-
 </html>
